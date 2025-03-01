@@ -1,1 +1,23 @@
+=begin
+  Dummy class nested inside a dummy module
+  Private API
+=end
+module Foo
+  class Bar
+    LIPSUM = "lorem ipsum dolor sit"
 
+    attr_reader :layout
+
+    def initialize
+      @layout = Layout.new
+    end
+
+    # instance method
+    def profile
+      measure_time do
+        compile layout
+        layout.render_with Bar::LIPSUM
+      end
+    end
+  end
+end
